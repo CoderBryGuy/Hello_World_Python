@@ -14,13 +14,13 @@ def scan(ip):
     arp_request_broadcast = broadcast/arp_request
     # print(arp_request_broadcast.summary())
     # arp_request_broadcast.show()
-    answered_list = scapy.srp(arp_request_broadcast, timeout=1)[0]
+    answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
     # print(answered_list.summary())
+
+    print("IP\t\t\tMAC Address\n=========================================")
     for element in answered_list:
-        print(element[1].psrc)
-        print(element[1].hwsrc)
-        # print(element[1])
-        print("===================================")
+        print(element[1].psrc + "\t\t" + element[1].hwsrc)
+      
 
 
 
